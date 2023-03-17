@@ -18,8 +18,8 @@ let defaultUser = {
 
 let token;
 
-describe('Follow APIs', () => {
-
+describe('Follow APIs', function () {
+    this.timeout(10000);
     // after(done => {
     //     // After each test we close the connection
     //     mongoose.connection.close();
@@ -43,7 +43,7 @@ describe('Follow APIs', () => {
         
 
         it("should Follow user successfully", done => {
-            const userId = '6414056acb7a38773a7409b3';
+            const userId = '641445fc38484fe34e38157c';
           chai
             .request(app)
             .post("/api/follow/" + userId)
@@ -57,7 +57,7 @@ describe('Follow APIs', () => {
         });
 
         it("should NOT Follow user successfully", done => {
-            const userId = '6414056acb7a38773a7409b3';
+            const userId = '641445fc38484fe34e38157c';
           chai
             .request(app)
             .post("/api/follow/" + userId)
@@ -75,7 +75,7 @@ describe('Follow APIs', () => {
     describe("POST /api/unfollow/:id", () => {
 
         it("should Unfollow user successfully", done => {
-            const userId = '6414056acb7a38773a7409b3';
+            const userId = '641445fc38484fe34e38157c';
           chai
             .request(app)
             .post("/api/unfollow/" + userId)
@@ -89,7 +89,7 @@ describe('Follow APIs', () => {
         });
 
         it("should NOT unfollow user successfully", done => {
-            const userId = '6414056acb7a38773a7409b3';
+            const userId = '641445fc38484fe34e38157c';
           chai
             .request(app)
             .post("/api/unfollow/" + userId)

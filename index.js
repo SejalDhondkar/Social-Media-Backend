@@ -22,7 +22,7 @@ const dbConnect = require('./db');
 module.exports = app.listen(port, () => {
     // try {
       dbConnect(MONGO_URI);
-      console.log("Database Connected at: ", MONGO_URI);
+      console.log("Database Connected");
     // } catch (error) {
     //   console.log("Database connection failed");
     //   console.log(error);

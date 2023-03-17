@@ -16,8 +16,8 @@ let token;
 
 let postId;
 
-describe('Like APIs', () => {
-
+describe('Like APIs', function () {
+    this.timeout(10000);
     // after(done => {
     //     // After each test we close the connection
     //     mongoose.connection.close();

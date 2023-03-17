@@ -27,8 +27,8 @@ let incorrectUserPassword = {
 
 let token;
 
-describe('Users APIs', () => {
-
+describe('Users APIs', function () {
+    this.timeout(10000);
     after(done => {
         // After each test we close the connection
         mongoose.connection.close();
@@ -102,7 +102,7 @@ describe('Users APIs', () => {
                 res.body.should.have.property('username');
                 res.body.should.have.property('follower_count');
                 res.body.should.have.property('following_count');
-                console.log(res.body);
+                // console.log(res.body);
                 done();
             });
         });

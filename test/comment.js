@@ -16,15 +16,15 @@ let token;
 
 let postId;
 
-describe('Post APIs', () => {
-
+describe('Comment APIs', function ()  {
+    this.timeout(10000);
     // after(done => {
     //     // After each test we close the connection
-    //     mongoose.connection.close();
+        
     //     done();
     // });
 
-    beforeEach(done => {
+    before(done => {
         chai
           .request(app)
           .post("/api/authenticate")
@@ -37,7 +37,7 @@ describe('Post APIs', () => {
           });
       });
 
-      beforeEach(done => {
+      before(done => {
         const post = {
             title: 'Test Post',
             description: 'Description'
@@ -59,7 +59,7 @@ describe('Post APIs', () => {
         });
       });
 
-    afterEach(done => {
+      after(done => {
         chai
             .request(app)
             .delete("/api/posts/" + postId)
@@ -70,7 +70,7 @@ describe('Post APIs', () => {
             //   console.log(res.body);
             done();
             });
-    });
+        });
 
     describe("POST /api/comment", () => {
 
@@ -86,7 +86,7 @@ describe('Post APIs', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('string');
-                console.log(res.body);
+                // console.log(res.body);
                 done();
             });
         });
